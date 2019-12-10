@@ -35,7 +35,7 @@ class IndexCom extends Component{
       <th scope="col">Business</th>
       <th scope="col">NIC</th>
       <th scope="col">Action</th>
-      <th scope="col">Action</th>
+      <th scope="col"></th>
 
     </tr>
   </thead>

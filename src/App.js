@@ -41,7 +41,7 @@ class App extends Component{
 <Switch>
   <Route exact path="/create" component={Create}></Route>
   <Route exact path="/index" component={IndexCom}></Route>
-  <Route exact path="/edit" component={Edit}></Route>
+  <Route exact path="/edit/:id" component={Edit}></Route>
 
 
 </Switch>

@@ -30,12 +30,14 @@ class Create extends Component{
           business_name:this.state.business_name,
           person_nic_number:this.state.person_nic_number
         };
-        axios.post('http://localhost:4000/business/add',obj).then(res=>console.log(res.data));
+        axios.post('http://localhost:4000/business/add',obj)
+        .then(res=>console.log(res.data));
         this.setState({
           person_name:'',
           business_name:'',
           person_nic_number:''
         })
+        this.props.history.push('/index')
       }
     
   render(){

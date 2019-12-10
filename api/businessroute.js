@@ -2,6 +2,7 @@ const express =require('express');
 const businessRoutes =express.Router();
 
 let Business =require('./businessmodel');
+
 businessRoutes.route('/add').post(function(req,res){
     let business =new Business(req.body);
     business.save()
@@ -21,12 +22,13 @@ businessRoutes.route('/').get(function(req,res){
         }
     });
 });
-businessRoutes.route('/edit/:_id').get(function(req,res){
-    let _id =req.params._id;
-    Business.findById(id,function(err,business){
+businessRoutes.route('/edit/:id').get(function (req, res) {
+    let id = req.params.id;
+    Business.findById(id, function (err, business){
         res.json(business);
     });
-});
+  });
+  
 businessRoutes.route('/update/:id').post(function(req,res){
     Business.findById(req.params.id,function(err,business){
         if(!business)
