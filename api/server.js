@@ -8,6 +8,8 @@ const mongoose =require('mongoose');
 const config =require('./DB.js');
 const businessRoute =require('./businessroute.js');
 
+const patientRoute = require('./patientRoute.js');
+
 mongoose.Promise =global.Promise;
 mongoose.connect(config.DB,{useNewUrlParser:true}).then(
     () => { console.log('Connected to mongodb!') },
@@ -18,6 +20,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extend:true}));
 app.use(bodyParser.json());
 app.use('/business',businessRoute);
+
+app.use('/patient',patientRoute);
 
 app.listen(PORT,function(){
     console.log('Server is running on port:',PORT);
