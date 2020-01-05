@@ -1,6 +1,7 @@
 const express =require('express');
 const patientRoute =express.Router();
 
+// const pdf = require(html-pdf)
 let Patient =require('./patientModel');
 
 
@@ -58,6 +59,5 @@ patientRoute.route('/patientDelete/:id').get(function(req,res){
         else res.json('Sucessfully removed');
     });
 });
-
 
 module.exports=patientRoute;

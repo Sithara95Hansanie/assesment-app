@@ -9,6 +9,7 @@ import IndexCom from './Components/index'
 import patientAdd from './Components/patientAdd'
 import Patient from './Components/patients'
 import PatientEdit from './Components/patientEdit'
+import MoreDetail from './Components/moredetail'
 
 import './index.css'
 
@@ -74,7 +75,7 @@ class App extends Component{
         <Route exact path="/patientAdd" component={patientAdd}></Route>
         <Route exact path="/patients" component={Patient}></Route>
         <Route exact path="/patientEdit/:id" component={PatientEdit}></Route>
-
+        <Route exact path="/moredetail/:id" component={MoreDetail}></Route>
       </Switch>
       </div>
      

@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+
+import '../index.css'
 class PatientList extends Component{
     constructor(props){
         super(props);
@@ -25,8 +27,11 @@ class PatientList extends Component{
                         <td>{this.props.obj.contact_no}</td>
                         <td>{this.props.obj.address}</td>
                         <td>
-                            <Link to={"/patientEdit/"+this.props.obj._id}  className="btn btn-primary">Edit</Link>
+                            <Link to={"/patientEdit/"+this.props.obj._id}  className="btn btn-success">Edit</Link>
+
                             <button onClick={this.delete} className="btn btn-danger">Delete</button>
+                            <Link to={"/moredetail/"+this.props.obj._id} className="btn btn-secondary">Print</Link>
+
                         </td>
                         
 
