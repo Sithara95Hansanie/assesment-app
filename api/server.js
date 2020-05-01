@@ -6,9 +6,10 @@ const cors =require('cors');
 
 const mongoose =require('mongoose');
 const config =require('./DB.js');
-const businessRoute =require('./businessroute.js');
+//const businessRoute =require('./businessroute.js');
 
 const patientRoute = require('./patientRoute.js');
+const doctorRoute = require('./doctorRoute.js');
 
 mongoose.Promise =global.Promise;
 mongoose.connect(config.DB,{useNewUrlParser:true}).then(
@@ -19,9 +20,10 @@ mongoose.connect(config.DB,{useNewUrlParser:true}).then(
 app.use(cors());
 app.use(bodyParser.urlencoded({extend:true}));
 app.use(bodyParser.json());
-app.use('/business',businessRoute);
+//app.use('/business',businessRoute);
 
 app.use('/patient',patientRoute);
+app.use('/doctor',doctorRoute);
 
 app.listen(PORT,function(){
     console.log('Server is running on port:',PORT);

@@ -1,39 +1,39 @@
-import React, { Component } from 'react';
+import React,{Component} from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-import PatientList from './patientList';
+import DoctorList from './doctorList';
 
-class Patient extends Component {
-    constructor(props) {
+class Doctor extends Component{
+    constructor(props){
         super(props);
-        this.state = {
-            patient: []
+        this.state ={
+            doctor:[]
         };
-
+    
     }
-    componentDidMount() {
-        axios.get('http://localhost:4000/patient')
-            .then(response => {
-                this.setState({ patient: response.data });
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
+    componentDidMount(){
+        axios.get('http://localhost:4000/doctor')
+        .then(response=>{
+            this.setState({doctor:response.data});
+        })
+        .catch(function(err){
+            console.log(err)
+        })
     }
-    tabRow() {
-        return this.state.patient.map(function (object, i) {
-            return <PatientList obj={object} key={i} />;
+    tabRow(){
+        return this.state.doctor.map(function(object,i){
+            return <DoctorList obj={object} key={i}/>;
         });
-    }
-    render() {
-        console.log(this.state.patient)
-        return (
+    }  
+    render(){
+        console.log(this.state.doctor)
+        return(
             <div className="container">
                 <div>
-                    <Link to={"/patientAdd/"} className="btn btn-primary">ADD NEW</Link>
+                <Link to={"/doctorAdd/"}  className="btn btn-primary">ADD NEW</Link>               
                 </div>
-                <br />
+                <br/>
                 <table className="table table-hover">
                     <thead className="thead-dark">
                         <tr>
@@ -48,13 +48,13 @@ class Patient extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.tabRow()}
+                    {this.tabRow()} 
                     </tbody>
-
+                    
                 </table>
 
             </div>
         )
     }
 }
-export default Patient;
+export default Doctor;
